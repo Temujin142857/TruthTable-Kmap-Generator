@@ -1,0 +1,1 @@
+java -jar Truth_Table_generator.jar
