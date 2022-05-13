@@ -4,22 +4,30 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 
+/**
+ * Class that prints the K-map to a txt file
+ * Only works for up to 4 inputs
+ */
+
 public class KMap_Printer {
-    String filename="K_Map.txt";
-    File file;
-    Writer writer;
-    ArrayList<Boolean> answers;
-    ArrayList<Input> inputs;
-    int lines=2;
-    int columns=2;
+    private final String filename="K_Map.txt";
+    private File file;
+    private Writer writer;
+    private ArrayList<Boolean> answers;
+    private ArrayList<Input> inputs;
+    private int lines=2;
+    private int columns=2;
 
     public KMap_Printer(ArrayList<Boolean> answers, ArrayList<Input> inputs){
         this.answers=answers;
         this.inputs=inputs;
-        if(inputs.size()==4){
+        if(inputs.size()>4){
+            throw new IllegalArgumentException("Cannot print a K-map with more than 4 inputs.");
+        }
+        else if(inputs.size()==4){
             lines=4;
         }
-        if (inputs.size()==3||inputs.size()==4){
+        else if (inputs.size()==3||inputs.size()==4){
             columns=4;
         }
     }
@@ -123,8 +131,6 @@ public class KMap_Printer {
             file = new File(filename);
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
-            } else {
-                System.out.println("File already exists.");
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");

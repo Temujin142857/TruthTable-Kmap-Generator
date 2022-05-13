@@ -109,6 +109,5 @@ public class Bracket_Reader {
      */
     public ArrayList<Input> getVariables() {
         return variables;
-
     }
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Class represents the contents of a set of brackets.
+ * Class represents the contents of a pair of brackets.
  */
 
 public class Family extends Operators {
@@ -44,7 +44,9 @@ public class Family extends Operators {
      * Finds the appropriate truth value of this family.
      */
     private void solve() {
-        System.out.println(operator);
+        if (operator==null){
+            throw new IllegalArgumentException("There is no operator in this bracket");
+        }
         switch (operator){
             case "+":
                 this.value= Or(values);

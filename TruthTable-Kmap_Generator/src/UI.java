@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 /**
  * Truth_Table_Generator --- program to solve a boolean expression, and create a txt with its truth table
- * @author Tomio Nagano
+ * @author Tomio Nagano, temujin142857@gmail.com
  */
 public class UI {
-    String variable;
-    ArrayList<Input> inputs=new ArrayList<>();
-    ArrayList<Family> families=new ArrayList<>();
-    Family mother_family;
-    Table_Printer printer = new Table_Printer();
-    String output;
+    private String variable;
+    private ArrayList<Input> inputs=new ArrayList<>();
+    private ArrayList<Family> families=new ArrayList<>();
+    private Family mother_family;
+    private Table_Printer printer = new Table_Printer();
+    private String output;
 
 
     /**
@@ -81,6 +81,10 @@ public class UI {
         }
     }
 
+    /**
+     * Asks the user if they would like a K-Map
+     * @return user's answer as a boolean
+     */
     private boolean take_kmap(){
         Scanner user = new Scanner(System.in);
         System.out.println("K-map? y/n");
@@ -96,11 +100,11 @@ public class UI {
      * @param expression Asks the user for the question to be solved, and takes their input.
      */
     private void find_inputs(String[] expression){
-        boolean added=false;
+        boolean added;
         for (int i = 0; i < expression.length; i++) {
             if(Character.isLetter(expression[i].charAt(0))){
                 added=false;
-                if (inputs.size()>0) {//makes sure this isnt the first input
+                if (inputs.size()>0) {//makes sure this isn't the first input
                     for (int j = 0; j < inputs.size(); j++) {//goes through all the stored inputs
                         if (inputs.get(j).getName().equals(expression[i])) {//makes sure this input wasn't already added
                             added=true;

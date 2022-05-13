@@ -7,9 +7,9 @@ import java.io.FileWriter;
  * Prints the truth table onto a .txt files.
  */
 public class Table_Printer {
-    private String filename="Truth_Table.txt";
-    File file;
-    FileWriter writer;
+    private final String filename="Truth_Table.txt";
+    private File file;
+    private FileWriter writer;
 
     /**
      * Writes the header of the truth table.
@@ -63,9 +63,7 @@ public class Table_Printer {
         try {
             file = new File(filename);
             if (file.createNewFile()) {
-                //System.out.println("File created: " + file.getName());
-            } else {
-                //System.out.println("File already exists.");
+                System.out.println("File created: " + file.getName());
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Karnough_Mapper {
     private ArrayList<Boolean> Answers_In_Location=new ArrayList<>();
-    ArrayList<Input> inputs;
+    private ArrayList<Input> inputs;
 
     public Karnough_Mapper(ArrayList<Boolean> answers,ArrayList<Input> inputs){
         this.inputs=inputs;
@@ -26,8 +26,7 @@ public class Karnough_Mapper {
             }
         }
         else{
-            System.out.println("Too many inputs for a K-Map.");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Too many inputs for a K-Map.");
         }
     }
 

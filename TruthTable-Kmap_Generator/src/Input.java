@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-//class represents a single variable
+/**
+ * class represents a single variable
+ */
 public class Input {
     private boolean value = true;
     private String name;
